@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
-export const NewThreads = () => {
+import { Link } from "react-router-dom";
+export const ThreadsList = () => {
   const [threads, setThreads] = useState([]);
   const [error, setError] = useState(null);
 
@@ -33,7 +34,7 @@ export const NewThreads = () => {
       <div className="bg-white p-7">
         {threads.map((thread) => (
           <div className="border p-2 mb-2" key={thread.id}>
-            {thread.title}
+            <Link to={`/threads/${thread.id}`}>{thread.title}</Link>
           </div>
         ))}
       </div>
